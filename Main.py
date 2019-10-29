@@ -8,7 +8,6 @@ f1 = open(file1, "w")
 line = f.readline()
 
 for line in f:
-    line = f.readline()
     if line == '':
         break
     line = line.strip()
