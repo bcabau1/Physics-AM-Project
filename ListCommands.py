@@ -99,9 +99,9 @@ def main():
     file1 = input("Write to file name: ")
     f1 = open(file1, "w")
     line = f.readline()
-    xspeed = 3
+    xspeed = 4
     xdist = 0
-    yspeed = 3
+    yspeed = 4
     ydist = 0
     linkedlist = DoublyLinkedList()
     for line in f:
