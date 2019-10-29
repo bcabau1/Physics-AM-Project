@@ -129,7 +129,7 @@ def main():
             if yspeed == 0:
                 yspeed = xspeed
             print(temp1, temp2, temp3, temp4, "\n", xdist, ydist, yspeed, xspeed)
-           # f1.write("2HS X =" + str(xspeed) + " Y =" + str(yspeed) + "\n")
+            f1.write("2HS X =" + str(xspeed) + " Y =" + str(yspeed) + "\n")
             f1.write("2HM X =" + str(temp3) + " Y =" + str(temp1) + "\n")
             linkedlist.remove(temp1)
             linkedlist.remove(temp3)
