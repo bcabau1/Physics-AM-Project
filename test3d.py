@@ -11,7 +11,7 @@ totaly = totalx
 dist = 5
 
 def galvo(a, b):
-    lx = (float(a + totalx)-totalx)
+    lx = -(float(a + totalx)-totalx)
     ly = (float(b + totaly)-totaly)
 
     thetaX = round((np.arctan(lx/2*dist)), 2)
@@ -25,16 +25,16 @@ def galvo(a, b):
 
     # Define x,y plane.
     X, Y = np.meshgrid([-dim / 200, dim / 200], [-dim / 4, dim / 4])
-    Z = (4 * Y * thetaX) / 200
+    Z = (4 * Y * thetaY) / 200
 
     # Define inclined plane.
     X2, Y2 = np.meshgrid([-dim / 200, dim / 200], [-dim / 4, dim / 4])
-    Z2 = (X2 * thetaY)
+    Z2 = (X2 * thetaX)
 
     # Plot x,y plane.
-    sf = ax.plot_surface(X, Y + .5, Z + .01, color='gray', alpha=.5, linewidth=0, zorder=1)
+    sf = ax.plot_surface(X, Y + .5, Z + .01, color='gray', alpha=.5, linewidth=0, zorder=1)   #y mirror
     # Plot top half of inclined plane.
-    sf1 = ax.plot_surface(X2, Y2 + .5, Z2 - .01, color='blue', alpha=.5, linewidth=0, zorder=3)
+    sf1 = ax.plot_surface(X2, Y2 + .5, Z2 - .01, color='blue', alpha=.5, linewidth=0, zorder=3) #x mirror
     return sf, sf1
 
 
