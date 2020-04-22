@@ -11,15 +11,17 @@ totaly = totalx
 dist = 5
 
 def galvo(a, b):
-    lx = (totalx - float(a))
-    ly = (totaly - float(b))
+    lx = (float(a + totalx)-totalx)
+    ly = (float(b + totaly)-totaly)
+
     thetaX = round((np.arctan(lx/2*dist)), 2)
     thetaY = round((np.arctan(ly/2*dist)), 2)
-
+    mechthetaX = thetaX/2
+    mechthetaY = thetaY/2
     dim = 2
 
-    print("X angle: ", thetaX)
-    print("Y angle: ", thetaY)
+    print("X mech-angle: ", mechthetaX*100, "X scan-angle: ", thetaX*100)
+    print("Y mech-angle: ", mechthetaY*100, "Y scan-angle: ", thetaY*100)
 
     # Define x,y plane.
     X, Y = np.meshgrid([-dim / 200, dim / 200], [-dim / 4, dim / 4])
