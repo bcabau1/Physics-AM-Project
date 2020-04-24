@@ -3,14 +3,15 @@ import matplotlib.pyplot as plt
 import numpy as np
 import math
 import sys
+import time
 
 fig = plt.figure()
 ax = Axes3D(fig)
 
 totalx = 4.6
 totaly = totalx
-dist = 5
-multiplier = 20
+dist = 2
+multiplier = 30
 ratio = dist / 40
 
 
@@ -25,8 +26,8 @@ def galvo(a, b):
     dim = 2
 
     while abs(thetaX) <= 25:
-        # print("X mech-angle: ", mechthetaX, "X scan-angle: ", thetaX)
-        # print("Y mech-angle: ", mechthetaY, "Y scan-angle: ", thetaY)
+        print("X mech-angle: ", mechthetaX, "X scan-angle: ", thetaX)
+        print("Y mech-angle: ", mechthetaY, "Y scan-angle: ", thetaY)
 
         # Define y mirror
         X, Y = np.meshgrid([-dim / 4, dim / 4], [-dim * ratio, dim * ratio])
@@ -87,6 +88,7 @@ for line in f:
     sf, sf1, vec1, vec2, vec3 = galvo(line[0] * multiplier, line[1] * multiplier)
     plt.plot([line[0] * multiplier], dist, [line[1] * multiplier], 'g,')
     # print("X =", (line[0]), "Y =", (line[1]), "Z =", 0)
+    plt.pause(.001)
     fig.canvas.draw()
 
 plt.show()
