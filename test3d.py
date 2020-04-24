@@ -11,7 +11,7 @@ ax = Axes3D(fig)
 totalx = 4.6
 totaly = totalx
 dist = 2
-multiplier = 30
+multiplier = 20
 ratio = dist / 40
 
 
@@ -43,9 +43,12 @@ def galvo(a, b):
         # Plot x mirror
         sf1 = ax.plot_surface(X2, Y2 + (dist * .1), Z2 - .5, color='blue', alpha=.5, linewidth=0, zorder=3)  # x mirror
 
+        lxmirror = -((2 * .5) * np.tan(np.radians(thetaX))) #0.5 is distance between mirrors
+        #print(thetaX)
+        #print(lxmirror)
         vec3 = ax.plot([-2.5, 0], [(dist * .1), (dist * .1)], [0 - .5, 0 - .5], 'g:', linewidth=.9)
-        vec2 = ax.plot([0, 0], [(dist * .1), (dist * .1)], [0 - .5, 0 + .5], 'g:', linewidth=.9)
-        vec1 = ax.plot([0, a], [(dist * .1), dist], [0 + .5, b], 'g:', linewidth=.9)
+        vec2 = ax.plot([0, lxmirror], [(dist * .1), (dist * .1)], [0 - .5, 0 + .5], 'g:', linewidth=.9)
+        vec1 = ax.plot([lxmirror, a], [(dist * .1), dist], [0 + .5, b], 'g:', linewidth=.9)
 
         sf._facecolors2d = sf._facecolors3d
         sf._edgecolors2d = sf._edgecolors3d
